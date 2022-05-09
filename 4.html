@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格复选的全选功能</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            text-align: center;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="tb">
+        <caption>
+            <h2>请选择前端设计参考书</h2>
+        </caption>
+        <tr style="font-weight: bold;">
+            <td><input id="all" type="checkbox" value="全选" onclick="all_check()" </td>
+            <td>书称</td>
+            <td>价格（元）</td>
+            <td>数量</td>
+        </tr>
+        <tr>
+            <td><input name="ic" type="checkbox" value="1" onclick="single_check()" </td>
+            <td>JavaScript入门提高</td>
+            <td>39</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td><input name="ic" type="checkbox" value="2" onclick="single_check()" </td>
+            <td>JavaScript编程艺术</td>
+            <td>29</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td><input name="ic" type="checkbox" value="3" onclick="single_check()" </td>
+            <td>锋利的javaScript</td>
+            <td>36</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td><input name="ic" type="checkbox" value="3" onclick="single_check()" </td>
+            <td>javaScript权威</td>
+            <td>59</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: left;font-weight: 900;">删除选中项</td>
+        </tr>
+
+    </table>
+    <script>
+        var oinput = document.getElementsByName("ic");
+        var allcheck = document.getElementById("all");
+        var tb = document.getElementById("tb");
+        function all_check() {
+            for (var i = 0; i < oinput.length; i++) {
+                if (allcheck.checked == true) {
+                    oinput[i].checked = true;
+                } else {
+                    oinput[i].checked = false;
+                }
+            }
+        }
+        function single_check() {
+            var j = 0;
+            for (var i = 0; i < oinput.length; i++) {
+                if (oinput[i].checked == true) {
+                    j = j + 1;
+                }
+            }
+            if (j == oinput.length) {//当所有的都被选中
+                allcheck.checked = true;//全选按钮打勾
+            } else {
+                allcheck.checked = false;
+            }
+        }
+    </script>
+</body>
+
+</html>

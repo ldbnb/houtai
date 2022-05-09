@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function del(a) {
+            var index = a.parentNode.parentNode.rowIndex;
+            document.getElementById("mytable").deleteRow(index);
+        }
+    </script>
+</head>
+
+<body>
+    <table id="mytable" border="1">
+        <tr>
+            <td>行1</td>
+            <td><a onclick="del(this)">删除</a></td>
+        </tr>
+        <tr>
+            <td>行2</td>
+            <td><input type="button" value="删除" onclick="del(this)" </td>
+        </tr>
+        <tr>
+            <td>行3</td>
+            <td><input type="button" value="删除" onclick="del(this)"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
